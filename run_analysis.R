@@ -87,5 +87,6 @@ setwd("~/Desktop/coursera/getting and cleaning data/course project/datascienceco
 write.table(dataTidy,file="tidy_data.txt",row.names=FALSE,col.names=FALSE,sep="\t",quote=FALSE)
 featuresTidy <- data.frame(names(dataTidy))
 write.table(featuresTidy,file="features.txt",row.names=FALSE,col.names=FALSE,sep="\t",quote=FALSE)
+# check if data is correctly recorded
 newData <- read.table("tidy_data.txt")
 newFeatures <- read.table("features.txt")
