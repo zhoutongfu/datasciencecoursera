@@ -1,4 +1,5 @@
 # datasciencecoursera
+### Structure
 =========
 There are several important files of this project:
   - *run_analysis.R*: the script to manipulate data which is described later
@@ -11,11 +12,10 @@ read.table("tidy_data.txt")
 read.table("features.txt")
 ```
 
-### how *run_analysis.R* works:
+### How *run_analysis.R* works:
 =========
-### Step1:
-### Step2:
-### Step3:
-### Step4:
-### Step5:
-use regular expression to extract features of measurements on mean and std: grep("mean\\(\\)",features) and grep("std\\(\\)",features)
+  - Step1: read data and merge train and test sets. read 6 files: subject_train.txt, X_train.txt, y_train.txt, subject_test.txt, X_test.txt, y_test.txt and combine them to create 1 data set.
+  - Step2: label the data set with descriptive variable names. Here I change the order of the steps as described in the course project description because it is easy and natural to include variable information right after loading data.
+  - Step3: extract measurements on mean and std. I used regular expression to find measurements on mean and std and create a new data set combining "subject" and "activity".
+  - Step4: name activities with descriptive names. Original the value of activities are from 1 to 6. Here I replaced the integer value with its actual meaning with function *mapvalues* from package *plyr*.
+  - Step5: creates a second, independent tidy data set with the average of each variable for each activity and each subject. Here I use *group_by* and *summarise_each* to group data and apply *mean()* function to each variable.
